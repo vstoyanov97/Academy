@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"   xmlns:sec="http://www.w3.org/1999/xhtml">
+<head >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<div th:replace="fragments/common"></div>
+
+<form id="registerForm" method="post" th:action="@{/register}"  th:object="${userDto}">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="Enter firstName" th:field="*{firstName}" >
+        <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="errors alert alert-danger">
+            Incorrect firstName
+        </p>
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName" placeholder="Enter lastName" th:field="*{lastName}" >
+        <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="errors alert alert-danger">
+            Incorrect lastName
+        </p>
+    </div>
+
+    <div class="form-group">
+
+        <label for="inputUsername">Username</label>
+        <input type="text" class="form-control" id="inputUsername"  placeholder="Enter username" th:field="*{username}" >
+        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="errors alert alert-danger">
+            Incorrect username
+        </p>
+    </div>
+
+    <div class="form-group">
+        <label for="inputEmail">Email</label>
+        <input type="text" class="form-control" id="inputEmail" placeholder="Enter email" th:field="*{email}" >
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="errors alert alert-danger">
+            Incorrect email
+        </p>
+    </div>
+
+    <div class="form-group">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" th:field="*{password}" >
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="errors alert alert-danger">
+            Incorrect passwords
+        </p>
+    </div>
+    <div class="form-group">
+        <label for="inputConfirmPassword">Confirm Password</label>
+        <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password" th:field="*{confirmPassword}" >
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+
+</form>
+
+</div>
+
+
+</body>
+</html>
